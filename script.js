@@ -1,15 +1,6 @@
-
-
-
-
-
-
-
-document.querySelectorAll(".btn-filtre").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-        const cat = btn.dataset.categorie;
-        document.querySelectorAll("#liste li").forEach(function (li) {
-            li.classList.toggle("cache-filtre", cat !== "tous" && li.dataset.categorie !== cat);
-        });
+document.getElementById("search").addEventListener("input", function () {
+    const texte = this.value.toLowerCase();
+    document.querySelectorAll("#liste li").forEach(function (li) {
+        li.classList.toggle("cache-recherche", !li.textContent.toLowerCase().includes(texte));
     });
 });
